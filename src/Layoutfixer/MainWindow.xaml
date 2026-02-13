@@ -1,0 +1,48 @@
+<Window x:Class="Layoutfixer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Layoutfixer" Height="420" Width="560"
+        WindowStartupLocation="CenterScreen">
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <StackPanel>
+            <TextBlock FontSize="18" FontWeight="SemiBold" Text="Layoutfixer" />
+            <TextBlock Margin="0,6,0,12" Text="Fix text typed in the wrong keyboard layout. Offline, private, fast." />
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Margin="0,8,0,8">
+            <GroupBox Header="Hotkeys">
+                <StackPanel Margin="8">
+                    <TextBlock Text="Convert selection" />
+                    <TextBox x:Name="SelectionHotkeyText" IsReadOnly="True" />
+                    <TextBlock Margin="0,10,0,0" Text="Convert last word" />
+                    <TextBox x:Name="LastWordHotkeyText" IsReadOnly="True" />
+                </StackPanel>
+            </GroupBox>
+
+            <GroupBox Header="Languages" Margin="0,12,0,0">
+                <StackPanel Margin="8">
+                    <CheckBox x:Name="LangEnHe" Content="English ↔ Hebrew" IsChecked="True" />
+                    <CheckBox x:Name="LangEnRu" Content="English ↔ Russian" IsChecked="True" />
+                </StackPanel>
+            </GroupBox>
+
+            <GroupBox Header="Behavior" Margin="0,12,0,0">
+                <StackPanel Margin="8">
+                    <CheckBox x:Name="StartWithWindows" Content="Start with Windows" />
+                    <CheckBox x:Name="PauseInGames" Content="Pause in full‑screen apps" IsChecked="True" />
+                </StackPanel>
+            </GroupBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,8,0,0">
+            <Button x:Name="SaveButton" Content="Save" Width="90" Margin="0,0,8,0" />
+            <Button x:Name="CloseButton" Content="Close" Width="90" />
+        </StackPanel>
+    </Grid>
+</Window>

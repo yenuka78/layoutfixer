@@ -1,0 +1,20 @@
+name: windows-ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - name: Restore
+        run: dotnet restore .\src\Layoutfixer\Layoutfixer.csproj
+      - name: Build
+        run: dotnet build .\src\Layoutfixer\Layoutfixer.csproj -c Release --no-restore
+      - name: Test
+        run: dotnet test .\tests\Layoutfixer.Tests\Layoutfixer.Tests.csproj -c Release --no-build
