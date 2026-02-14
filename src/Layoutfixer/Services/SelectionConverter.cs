@@ -7,12 +7,12 @@ namespace Layoutfixer.Services;
 public class SelectionConverter
 {
     private readonly ClipboardService _clipboard;
-    private readonly LayoutfixerEngine _engine;
+    private readonly Layoutfixer.Core.Services.LayoutfixerEngine _engine;
 
     public SelectionConverter()
     {
         _clipboard = new ClipboardService();
-        _engine = new LayoutfixerEngine();
+        _engine = new Layoutfixer.Core.Services.LayoutfixerEngine();
     }
 
     public void ConvertSelection(Settings settings)
