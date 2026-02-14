@@ -1,0 +1,30 @@
+name: release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  release:
+    runs-on: windows-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Publish app
+        run: dotnet publish .\src\Layoutfixer\Layoutfixer.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -o .\dist\Layoutfixer
+
+      - name: Zip package
+        run: Compress-Archive -Path .\dist\Layoutfixer\* -DestinationPath .\dist\Layoutfixer-win-x64.zip
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: .\dist\Layoutfixer-win-x64.zip
+          generate_release_notes: true

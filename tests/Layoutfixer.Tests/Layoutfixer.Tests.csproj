@@ -15,6 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Layoutfixer\Layoutfixer.csproj" />
+    <ProjectReference Include="..\..\src\Layoutfixer.Core\Layoutfixer.Core.csproj" />
   </ItemGroup>
 </Project>

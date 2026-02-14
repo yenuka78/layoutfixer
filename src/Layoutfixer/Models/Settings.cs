@@ -1,11 +1,6 @@
 namespace Layoutfixer.Models;
 
-public class Settings
+[System.Obsolete("Use Layoutfixer.Core.Models.Settings")]
+public class Settings : Layoutfixer.Core.Models.Settings
 {
-    public string SelectionHotkey { get; set; } = "Ctrl+Alt+L";
-    public string LastWordHotkey { get; set; } = "Ctrl+Alt+K";
-    public bool EnableEnHe { get; set; } = true;
-    public bool EnableEnRu { get; set; } = true;
-    public bool StartWithWindows { get; set; } = false;
-    public bool PauseInFullscreen { get; set; } = true;
 }

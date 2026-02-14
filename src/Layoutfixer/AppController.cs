@@ -1,4 +1,4 @@
-using Layoutfixer.Models;
+using Layoutfixer.Core.Models;
 using Layoutfixer.Services;
 using System;
 using System.Windows;
