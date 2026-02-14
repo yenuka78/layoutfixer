@@ -4,6 +4,7 @@ on:
   push:
     tags:
       - 'v*.*.*'
+  workflow_dispatch:
 
 jobs:
   release:
@@ -23,8 +24,12 @@ jobs:
       - name: Zip package
         run: Compress-Archive -Path .\dist\Layoutfixer\* -DestinationPath .\dist\Layoutfixer-win-x64.zip
 
+      - name: Verify package exists
+        shell: pwsh
+        run: Get-ChildItem ./dist -Recurse
+
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          files: .\dist\Layoutfixer-win-x64.zip
+          files: ./dist/Layoutfixer-win-x64.zip
           generate_release_notes: true
