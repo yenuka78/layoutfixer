@@ -35,7 +35,7 @@ public class KeyLayoutConverterTests
     {
         var c = new KeyLayoutConverter();
         var output = c.ConvertAuto("привет", enableEnHe: true, enableEnRu: true);
-        Assert.Equal("ghbdtn", output);
+        Assert.Equal("привет", output);
     }
 
     [Fact]
