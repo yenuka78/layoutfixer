@@ -10,7 +10,7 @@ public class ClipboardService
         string? result = null;
         var t = new Thread(() =>
         {
-            if (Clipboard.ContainsText()) result = Clipboard.GetText();
+            if (System.Windows.Clipboard.ContainsText()) result = System.Windows.Clipboard.GetText();
         });
         t.SetApartmentState(ApartmentState.STA);
         t.Start();
@@ -20,7 +20,7 @@ public class ClipboardService
 
     public void SetText(string text)
     {
-        var t = new Thread(() => Clipboard.SetText(text));
+        var t = new Thread(() => System.Windows.Clipboard.SetText(text));
         t.SetApartmentState(ApartmentState.STA);
         t.Start();
         t.Join();

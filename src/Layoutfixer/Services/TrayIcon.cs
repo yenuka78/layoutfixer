@@ -38,7 +38,7 @@ public class TrayIcon : IDisposable
     {
         _notifyIcon.Visible = false;
         _notifyIcon.Dispose();
-        Application.Current.Shutdown();
+        System.Windows.Application.Current.Shutdown();
     }
 
     public void Dispose() => _notifyIcon.Dispose();

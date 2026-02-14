@@ -39,6 +39,6 @@ public partial class MainWindow : Window
         _settings.PauseInFullscreen = PauseInGames.IsChecked == true;
 
         _settingsStore.Save(_settings);
-        MessageBox.Show("Saved", "Layoutfixer", MessageBoxButton.OK, MessageBoxImage.Information);
+        System.Windows.MessageBox.Show("Saved", "Layoutfixer", MessageBoxButton.OK, MessageBoxImage.Information);
     }
 }
